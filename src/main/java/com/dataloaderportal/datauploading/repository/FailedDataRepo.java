@@ -7,5 +7,5 @@ import com.dataloaderportal.datauploading.model.InvalidData;
 
 @Repository
 public interface FailedDataRepo extends JpaRepository<InvalidData,String> {
-
+    Boolean existsByContactNumber(String contactNumber);
 }

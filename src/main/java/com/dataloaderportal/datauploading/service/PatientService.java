@@ -31,7 +31,7 @@ public class PatientService {
 	
 	public ResponseEntity<List<PatientDTO>> savePatient(List<PatientDTO> patientDTO,String token) throws  NullPointerException{
 		
-		SimpleDateFormat formaterDateFormat=new SimpleDateFormat("MM-dd-yyyy");
+		SimpleDateFormat formaterDateFormat=new SimpleDateFormat("MM/dd/yyyy");
 		
 
 		
@@ -44,10 +44,17 @@ public class PatientService {
 					patientdto.getPhoneNumber().matches("[0-9]+")) {
 			
 			
-			boolean exists=patientRepo.existsById(patientdto.getPatientName());
+//			boolean exists=patientRepo.existsById(patientdto.getPatientName());
+//			if(exists) {
+//				continue;
+//			}
+
+			boolean exists=patientRepo.existsByContactNumber(patientdto.getPhoneNumber());
 			if(exists) {
 				continue;
 			}
+
+
 		    Patient patient=new Patient();
 		    patient.setPatientName(patientdto.getPatientName());
 		    patient.setPatientAddress(patientdto.getAddress());
@@ -63,10 +70,18 @@ public class PatientService {
 		}
 			else {
 
-				boolean exists=faileddatarepo.existsById(patientdto.getPatientName());
+//				boolean exists=faileddatarepo.existsById(patientdto.getPatientName());
+//				if(exists) {
+//					continue;
+//				}
+
+				boolean exists=faileddatarepo.existsByContactNumber(patientdto.getPhoneNumber());
 				if(exists) {
 					continue;
 				}
+
+
+
 			    InvalidData patient=new InvalidData();
 			    patient.setPatientName(patientdto.getPatientName());
 			    patient.setPatientAddress(patientdto.getAddress());

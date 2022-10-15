@@ -8,5 +8,5 @@ import com.dataloaderportal.datauploading.model.Patient;
 
 @Repository
 public interface PatientRepo extends JpaRepository<Patient,String>{
-
+    Boolean existsByContactNumber(String contactNumber);
 }

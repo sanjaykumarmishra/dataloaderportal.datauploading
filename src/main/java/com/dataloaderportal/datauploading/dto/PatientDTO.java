@@ -27,7 +27,7 @@ public class PatientDTO {
 	
 	private String address;
 	
-    @JsonFormat(pattern = "MM-dd-yyyy")
+    @JsonFormat(pattern = "MM/dd/yyyy")
 	private Date dateofBirth;
 	
 	private String emailId;
