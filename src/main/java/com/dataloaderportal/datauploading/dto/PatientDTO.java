@@ -15,30 +15,34 @@ import lombok.Setter;
 @Getter
 @Data
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class PatientDTO {
-	
-    public PatientDTO(String patientName2, String address2, String string, String emailId2, String phoneNumber2,
-			String drugId2, String drugName2) {
-	}
+
 
 	private String patientName;
 	
 	private String address;
 	
-    @JsonFormat(pattern = "MM/dd/yyyy")
-	private Date dateofBirth;
+//    @JsonFormat(pattern = "MM/dd/yyyy")
+//	private Date dateofBirth;
+
+	private String dateofBirth;
 	
 	private String emailId;
-	
-	@Size(min = 10,max = 10,message = "phone number criteria not met")
+
 	private String phoneNumber;
 	
 	private String drugId;
 	
 	private String drugName;
-	
-	
 
+	public PatientDTO(String patientName, String address, String dateofBirth, String emailId, String phoneNumber, String drugId, String drugName) {
+		this.patientName = patientName;
+		this.address = address;
+		this.dateofBirth = dateofBirth;
+		this.emailId = emailId;
+		this.phoneNumber = phoneNumber;
+		this.drugId = drugId;
+		this.drugName = drugName;
+	}
 }

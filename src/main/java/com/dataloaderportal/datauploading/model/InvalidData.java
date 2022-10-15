@@ -48,6 +48,9 @@ public class InvalidData {
 		@Column(name = "status")
 		private String status;
 
+		@Column(name = "remarks")
+		private String remarks;
+
 	public InvalidData(String patientName, String patientAddress, String dateofbirth, String patientEmail, String contactNumber, String drugId, String drugName, String status) {
 		this.patientName = patientName;
 		this.patientAddress = patientAddress;
@@ -58,6 +61,9 @@ public class InvalidData {
 		this.drugName = drugName;
 		this.status = status;
 	}
+
+
+
 }
 
 
